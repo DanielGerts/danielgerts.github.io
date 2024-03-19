@@ -61,15 +61,7 @@ function emailValidation()
 
 function checkForIdenticalPasswords()
 {
-    if (repeatPasswordInput.value !== passwordInput.value && repeatPasswordInput.value !== "")
-    {
-        incorrectPasswordMsg.style.color = "red";
-        incorrectPasswordMsg.innerText = "Пароли не совпадают"
-        passwordInput.style.border = "1px solid red"
-        repeatPasswordInput.style.border = "1px solid red"
-        return false
-    }
-    else if (passwordInput.value.length <= 8 && passwordInput.value !== "")
+    if (passwordInput.value.length <= 8 && passwordInput.value !== "")
     {
         incorrectPasswordMsg.style.color = "red";
         incorrectPasswordMsg.innerText = "Пароль слишком короткий"
@@ -77,6 +69,15 @@ function checkForIdenticalPasswords()
         repeatPasswordInput.style.border = "1px solid red"
         return false
     }
+    else if (repeatPasswordInput.value !== passwordInput.value && repeatPasswordInput.value !== "")
+    {
+        incorrectPasswordMsg.style.color = "red";
+        incorrectPasswordMsg.innerText = "Пароли не совпадают"
+        passwordInput.style.border = "1px solid red"
+        repeatPasswordInput.style.border = "1px solid red"
+        return false
+    }
+
     else if (passwordInput.value === "" || repeatPasswordInput.value === "")
     {
         incorrectPasswordMsg.innerText = ""
@@ -128,8 +129,7 @@ repeatPasswordInput.addEventListener("input", checkForIdenticalPasswords)
 
 // The code change the color of the button from white to green if the form filled correctly
 usernameInput.addEventListener("input", changeButtonColor)
-repeatPasswordInput.addEventListener("input", changeButtonColor)
-passwordInput.addEventListener('input', changeButtonColor)
 emailInput.addEventListener("input", changeButtonColor)
 checkbox.addEventListener("input", changeButtonColor)
-
+repeatPasswordInput.addEventListener("input", changeButtonColor)
+passwordInput.addEventListener('input', changeButtonColor)
