@@ -69,7 +69,7 @@ function checkForIdenticalPasswords()
         repeatPasswordInput.style.border = "1px solid red"
         return false
     }
-    else if (passwordInput.value.length <= 8 ?? passwordInput.value !== "")
+    else if (passwordInput.value.length <= 8 && passwordInput.value !== "")
     {
         incorrectPasswordMsg.style.color = "red";
         incorrectPasswordMsg.innerText = "Пароль слишком короткий"
